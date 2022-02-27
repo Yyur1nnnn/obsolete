@@ -129,6 +129,6 @@ dmypy.json
 .pyre/
 
 
-.resources/image/images
-.resources/data
-.test/
+resources/image/images
+resources/data
+test/
