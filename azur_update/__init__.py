@@ -7,7 +7,7 @@ from nonebot.adapters.onebot.v11 import Message
 from nonebot.plugin.on import on_command, on_regex
 from nonebot.params import Arg, ArgPlainText, CommandArg
 
-from .data_source import get_update_state, set_update_state, update_local_resources, apscheduler_switch
+from .data_source import get_update_state, set_update_state, update_local_resources, apscheduler_switch, compare_version
 from .update_image import kill_popen
 
 
@@ -27,9 +27,12 @@ async def _(mod: str = ArgPlainText("mod")):
         await update.send("参数错误,默认以强制模式更新", at_sender=True)
         mod = "强制"
     if "强制" == mod:
-        await update.send("已选择强制模式更新", at_sender=True)
-        await update_local_resources()
-        raise FinishedException
+        if compare_version():
+            await update.send("已选择强制模式更新", at_sender=True)
+            await update_local_resources(True)
+            raise FinishedException
+        else:
+            await update.send("当前已经是最新版本啦，不需要更新", at_sender=True)
     else: 
         state = get_update_state()
         state_text = "开启" if state else "关闭"

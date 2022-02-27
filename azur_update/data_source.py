@@ -1,10 +1,10 @@
-from email import message
 import json
 import os
 from pathlib import Path
-
 import aiofiles
+
 from services.log import logger
+from utils.http_utils import AsyncHttpx
 from utils.utils import get_bot, scheduler
 
 from .._path_config import _DATA_PATH
@@ -14,7 +14,7 @@ from .update_data import update_name_dict
 
 async def get_local_version() -> int:
     """
-    获取版本信息
+    获取本地版本信息
 
     返回值:
         int: 版本号
@@ -24,39 +24,64 @@ async def get_local_version() -> int:
     return load_dict['ships']['version-number']
 
 
+async def compare_version() -> bool:
+    """
+    获取GitHub版本信息与本地版本进行比较
+
+    返回值:
+        bool: 比较结果
+    """
+    try:
+        varurl = "https://cdn.jsdelivr.net/gh/AzurAPI/azurapi-js-setup@master/version-info.json"
+        data = (await AsyncHttpx.get(varurl)).json()
+        gitver = data['ships']['version-number']
+        localver = await get_local_version()
+        if gitver <= localver:
+            return False
+    except:
+        pass
+    return True
+
+
 async def send_superusers(message: str = None):
     await get_bot().send_private_msg(
         user_id=int(list(get_bot().config.superusers)[0]),
         message=message
     )
 
-async def update_local_resources():
+
+async def update_local_resources(skipif: bool = False):
     """
-    更新本地图片和数据
+    更新本地数据和图片资源
+
+    参数:
+        skipif (bool, optional): 是否跳过版本比较直接更新，因为强制模式已经比较过一次版本
+        所以可以选择直接更新。
     """
-    url = "https://github.com/AzurAPI/azurapi-js-setup"
-    #优先更新数据
-    await send_superusers(
-        "碧蓝助手@正在更新碧蓝助手资源，请保证网络可以链接到github并且内存充足 \n" +
-        f"期间如果出现报错，请前往{url}手动更新资源"
-    )
-    err = await update_name_dict()
-    if err:
-        await send_superusers(err)
-    else:
-        logger.info(f"数据文件更新完成，开始下载图片资源")
-    await send_superusers(
-        f"准备开始下载图片文件，下载期间可以在任意聊天中发送【取消碧蓝图片更新】中断"
-    )
-    #下载图片
-    set_update_state(True, "download_image")
-    err = await download_azurapi_image()
-    if err:
-        await send_superusers(err + f"\n请前往{url}往手动更新")
-    else:
-        version = await get_local_version()
-        await send_superusers(f"碧蓝助手@当前更新已完成，当前版本为{version}。")
-    set_update_state(False, "download_image")
+    if skipif or compare_version():
+        url = "https://github.com/AzurAPI/azurapi-js-setup"
+        #优先更新数据
+        await send_superusers(
+            "碧蓝助手@正在更新碧蓝助手资源，请保证网络可以链接到github并且内存充足 \n" +
+            f"期间如果出现报错，请前往{url}手动更新资源"
+        )
+        err = await update_name_dict()
+        if err:
+            await send_superusers(err)
+        else:
+            logger.info(f"数据文件更新完成，开始下载图片资源")
+        await send_superusers(
+            f"准备开始下载图片文件，下载期间可以在任意聊天中发送【取消碧蓝图片更新】中断"
+        )
+        #下载图片
+        set_update_state(True, "download_image")
+        err = await download_azurapi_image()
+        if err:
+            await send_superusers(err + f"\n请前往{url}往手动更新")
+        else:
+            version = await get_local_version()
+            await send_superusers(f"碧蓝助手@当前更新已完成，当前版本为{version}。")
+        set_update_state(False, "download_image")
 
 
 
