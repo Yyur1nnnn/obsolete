@@ -122,8 +122,8 @@ def apscheduler_switch():
     if get_update_state():
         scheduler.add_job(update_local_resources,
                         "cron",
-                        day_of_week=3,
-                        hour=18,
+                        # day_of_week=3,
+                        hour=2,
                         id="azur_update")
     else:
         try:
