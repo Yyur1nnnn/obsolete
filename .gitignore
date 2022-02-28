@@ -130,7 +130,9 @@ dmypy.json
 
 
 */__pycache__
-resources/image/images
+resources/temp
+resources/image/*
+!resources/image/icon
 resources/data
 AssetExtract/
 test/
