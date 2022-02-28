@@ -25,6 +25,3 @@ def load_path():
     resources_manager.add_temp_dir(_TEMP_PATH)
 
 load_path()
-
-
-
