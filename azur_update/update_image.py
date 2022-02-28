@@ -8,6 +8,7 @@ from services.log import logger
 
 from .._path_config import PATH_, _IMAGE_PATH
 
+
 async def download_azurapi_image() -> str:
     """# 实验功能
 
@@ -39,7 +40,7 @@ def popen(timeout: str = 3600) -> str:
         # shell=True,
         cwd=cwd,
         # creationflags=CREATE_NO_WINDOW,
-        )
+    )
     try:
         p.communicate(timeout=timeout)[0]
         if p.returncode == 0:
@@ -55,11 +56,11 @@ def popen(timeout: str = 3600) -> str:
 
 def kill_popen():
     p.kill()
-    
+
 
 # from typing import Any
 # from nonebot.exception import FinishedException
-# from nonebot.adapters.onebot.v11 import Bot    
+# from nonebot.adapters.onebot.v11 import Bot
 # @Bot.on_calling_api
 # async def _(bot: Bot, api: str, data: Dict[str, Any]):
 #     if not p and data["message"] in "碧蓝助手@片更新失败，未知原因。请使尝试手动更新":

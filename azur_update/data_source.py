@@ -19,7 +19,9 @@ async def get_local_version() -> int:
     返回值:
         int: 版本号
     """
-    async with aiofiles.open(_DATA_PATH / "version-info.json",'r', encoding='utf-8') as lf:
+    async with aiofiles.open(_DATA_PATH / "version-info.json",
+                             'r',
+                             encoding='utf-8') as lf:
         load_dict = json.loads(await lf.read())
     return load_dict['ships']['version-number']
 
@@ -44,10 +46,9 @@ async def compare_version() -> bool:
 
 
 async def send_superusers(message: str = None):
-    await get_bot().send_private_msg(
-        user_id=int(list(get_bot().config.superusers)[0]),
-        message=message
-    )
+    await get_bot().send_private_msg(user_id=int(
+        list(get_bot().config.superusers)[0]),
+                                     message=message)
 
 
 async def update_local_resources(skipif: bool = False):
@@ -61,18 +62,14 @@ async def update_local_resources(skipif: bool = False):
     if skipif or compare_version():
         url = "https://github.com/AzurAPI/azurapi-js-setup"
         #优先更新数据
-        await send_superusers(
-            "碧蓝助手@正在更新碧蓝助手资源，请保证网络可以链接到github并且内存充足 \n" +
-            f"期间如果出现报错，请前往{url}手动更新资源"
-        )
+        await send_superusers("碧蓝助手@正在更新碧蓝助手资源，请保证网络可以链接到github并且内存充足 \n" +
+                              f"期间如果出现报错，请前往{url}手动更新资源")
         err = await update_name_dict()
         if err:
             await send_superusers(err)
         else:
             logger.info(f"数据文件更新完成，开始下载图片资源")
-        await send_superusers(
-            f"准备开始下载图片文件，下载期间可以在任意聊天中发送【取消碧蓝图片更新】中断"
-        )
+        await send_superusers(f"准备开始下载图片文件，下载期间可以在任意聊天中发送【取消碧蓝图片更新】中断")
         #下载图片
         set_update_state(True, "download_image")
         err = await download_azurapi_image()
@@ -84,9 +81,10 @@ async def update_local_resources(skipif: bool = False):
         set_update_state(False, "download_image")
 
 
-
 path_ = Path(__file__).parent
 UPDATE_STATE = path_ / "update_state.json"
+
+
 def get_update_state(task: str = "apscheduler") -> bool:
     """
     返回当前某个更新任务是否进行，默认返回定时更新的开启状态
@@ -120,11 +118,12 @@ def set_update_state(state: bool, task: str = "apscheduler"):
 # 判断定时任务是否开启
 def apscheduler_switch():
     if get_update_state():
-        scheduler.add_job(update_local_resources,
-                        "cron",
-                        # day_of_week=3,
-                        hour=2,
-                        id="azur_update")
+        scheduler.add_job(
+            update_local_resources,
+            "cron",
+            # day_of_week=3,
+            hour=2,
+            id="azur_update")
     else:
         try:
             scheduler.remove_job("azur_update")
@@ -132,4 +131,4 @@ def apscheduler_switch():
             pass
 
 
-apscheduler_switch()    
+apscheduler_switch()

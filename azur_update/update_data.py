@@ -25,7 +25,7 @@ async def download_azurapi_data() -> bool:
         "memories.json",
         "ships.json",
     ]
-    
+
     logger.info(f"正在从{main_url}..下载文件....")
     try:
         for j in josn_list:
@@ -36,7 +36,7 @@ async def download_azurapi_data() -> bool:
                 try:
                     data = (await AsyncHttpx.get(url)).json()
                     async with aiofiles.open(path, "w") as wf:
-                        await wf.write(json.dumps(data))    
+                        await wf.write(json.dumps(data))
                     logger.info(f"{j}下载完成....")
                     break
                 except TimeoutError:
@@ -58,16 +58,18 @@ async def download_bwiki_shipalias():
     url = "https://wiki.biligame.com/blhx/%E8%88%B0%E5%A8%98%E5%9B%BE%E9%89%B4"
     text = (await AsyncHttpx.get(url)).text
     soup = BeautifulSoup(text, "lxml")
-    type_lst = soup.find("div", {"class": "resp-tabs-container"}).find_all("div", {"class": "resp-tab-content"})
-    
+    type_lst = soup.find("div", {
+        "class": "resp-tabs-container"
+    }).find_all("div", {"class": "resp-tab-content"})
+
     names = {}
     path = _DATA_PATH / "alias.json"
-    
+
     logger.info(f"获取alias.json....")
     for char_lst in type_lst:
         try:
-            contents = char_lst.find("table").find(
-                "tbody").contents[-1].find("td").contents
+            contents = char_lst.find("table").find("tbody").contents[-1].find(
+                "td").contents
         except AttributeError:
             continue
         for char in contents[1:]:
@@ -83,10 +85,11 @@ async def download_bwiki_shipalias():
             except AttributeError:
                 continue
     async with aiofiles.open(path, "wb") as wf:
-        await wf.write(json.dumps(names, indent=2, ensure_ascii=False).encode())
+        await wf.write(
+            json.dumps(names, indent=2, ensure_ascii=False).encode())
     return path
-                
-                
+
+
 async def update_name_dict():
     """
     
@@ -98,7 +101,9 @@ async def update_name_dict():
 
     # 判断文件是否存在，不存在的话就不进行读取
     try:
-        async with aiofiles.open(_DATA_PATH / "names.json", "r", encoding="utf-8") as fp:
+        async with aiofiles.open(_DATA_PATH / "names.json",
+                                 "r",
+                                 encoding="utf-8") as fp:
             ships = json.loads(await fp.read())
     except:
         pass
@@ -115,11 +120,15 @@ async def update_name_dict():
     for item in data:
         if item["id"] in ships.keys():
             continue
-        ships[item["id"]] = [item["names"]["cn"], item["names"]["jp"], item["names"]["kr"], item["names"]["en"]]
+        ships[item["id"]] = [
+            item["names"]["cn"], item["names"]["jp"], item["names"]["kr"],
+            item["names"]["en"]
+        ]
         try:
             alias_cn = alias[item["names"]["cn"]]
             ships[item["id"]].insert(1, alias_cn)
         except:
             pass
-    async with aiofiles.open(_DATA_PATH / "names.json", "w", encoding="utf-8") as fp:
+    async with aiofiles.open(_DATA_PATH / "names.json", "w",
+                             encoding="utf-8") as fp:
         await fp.write(json.dumps(ships, indent=2, ensure_ascii=False))
