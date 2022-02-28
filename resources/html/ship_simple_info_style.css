@@ -1,0 +1,37 @@
+.main {
+    position: relative;
+}
+.bg, .ship-simple-info{
+    position: absolute;
+}
+.ship-rarity-bg {
+    background: no-repeat;
+}
+.ste-size {
+    width: 1215px;
+    height: 684px;
+}
+.painting-box {
+    background: -425px -298px;
+    background-size: 1645px;
+}
+.ship-info-bg {
+    background-size: 1215px;
+}
+.ship-simple-info {
+    margin-top:10px;
+    position: absolute;
+}
+.left-info, .right-info, .right-info .container {
+    float:left ;
+}
+.left-info {
+     width:54.5%; height:100%;
+}
+.right-info {
+    width:45.5%; height:100%;
+    margin-top: 20px;
+}
+.right-info .container{
+    width: 535px;
+}
