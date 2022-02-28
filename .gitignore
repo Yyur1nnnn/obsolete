@@ -132,7 +132,7 @@ dmypy.json
 */__pycache__
 resources/temp
 resources/image/*
-!resources/image/icon
+!resources/image/ship_info
 resources/data
 AssetExtract/
 test/
