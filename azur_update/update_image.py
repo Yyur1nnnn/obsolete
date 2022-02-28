@@ -6,7 +6,7 @@ import subprocess
 
 from services.log import logger
 
-from .._path_config import _IMAGE_PATH
+from .._path_config import PATH_, _IMAGE_PATH
 
 async def download_azurapi_image() -> str:
     """# 实验功能
@@ -18,18 +18,20 @@ async def download_azurapi_image() -> str:
     返回值:
         str: 返回错误信息，没有错误信息返回空值
     """
-    svn_path = _IMAGE_PATH / "images" / ".svn"
-    if os.path.isfile(svn_path):
-        shutil.rmtree(svn_path)
+    try:
+        shutil.rmtree(_IMAGE_PATH / "skills" / ".svn")
+        shutil.rmtree(_IMAGE_PATH / "skins" / ".svn")
+    except:
+        pass
     retvalue = await asyncio.get_event_loop().run_in_executor(None, popen)
     return retvalue
 
 
 def popen(timeout: str = 3600) -> str:
-    url = "https://github.com/AzurAPI/azurapi-js-setup/trunk/images"
-    command = f"svn co {url}"
+    url = "https://github.com/AzurAPI/azurapi-js-setup/trunk/images/"
+    command = f"svn co {url}skills {url}skins image"
     # CREATE_NO_WINDOW = 0x08000000 if platform.system() == "Windows" else None
-    cwd = str(_IMAGE_PATH.absolute())
+    cwd = str(PATH_.absolute())
     global p
     p = subprocess.Popen(
         command,

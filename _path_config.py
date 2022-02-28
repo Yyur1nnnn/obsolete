@@ -2,23 +2,23 @@ from utils.manager import resources_manager
 from pathlib import Path
 import os
 
-path_ = Path(__file__).parent
+PATH_ = Path(__file__).parent
 
 # 图片路径
-_IMAGE_PATH = path_ / "resources" / "image"
-# 语音路径
-# RECORD_PATH = Path() / "resources" / "record"
+_IMAGE_PATH = PATH_ / "resources" / "image"
+# HTML路径
+HTML_PATH = PATH_ / "resources" / "html"
 # 字体路径
-_FONT_PATH = path_ / "resources" / "font"
+_FONT_PATH = PATH_ / "resources" / "font"
 # 数据路径
-_DATA_PATH = path_ / "resources" / "data"
+_DATA_PATH = PATH_ / "resources" / "data"
 # 临时数据路径
-_TEMP_PATH = path_ / "resources" / "temp"
+_TEMP_PATH = PATH_ / "resources" / "temp"
 
 
 def load_path():
     _IMAGE_PATH.mkdir(parents=True, exist_ok=True)
-    # _RECORD_PATH.mkdir(parents=True, exist_ok=True)
+    HTML_PATH.mkdir(parents=True, exist_ok=True)
     _FONT_PATH.mkdir(parents=True, exist_ok=True)
     _DATA_PATH.mkdir(parents=True, exist_ok=True)
     _TEMP_PATH.mkdir(parents=True, exist_ok=True)
