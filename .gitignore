@@ -130,9 +130,9 @@ dmypy.json
 
 
 */__pycache__
-resources/temp
-resources/image/*
-!resources/image/ship_info
-resources/data
-AssetExtract/
-test/
+temp
+azur_/resources/image/*
+!azur_/resources/image/ship_info
+data
+AssetExtract
+test.py
