@@ -1,4 +1,4 @@
-<!-- ./wkhtmltoimage --enable-local-file-access --width 1215 --height 684 --encoding UTF-8 --print-media-type H:/qq/YuriBot/zhenxun_bot-main/azur_/resources/html/ship_simple_info.html C:/Users/Izumi/Desktop/1.jpg  -->
+<!-- ./wkhtmltoimage --enable-local-file-access --width 1215 --height 684 --encoding UTF-8 H:/qq/YuriBot/zhenxun_bot-main/plugins_ex/azur_/resources/html/ship_simple_info.html C:/Users/Izumi/Desktop/test.jpg  -->
 <!DOCTYPE html>
 <html lang="zh-cn">
 
@@ -6,10 +6,36 @@
     <meta charset="UTF-8">
     <title>ship simple infoab</title>
     <script src="js/jquery-3.6.0.min.js"></script>
-    <script src="js/html2canvas.min.js" type="text/javascript"></script>
     <!-- <script src="js/bootstrap.min.js" type="text/javascript"></script> -->
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="ship_simple_info_style.css" rel="stylesheet" type="text/css"/>
+    <style>
+        /* Fix wkhtmltopdf compatibility with BS flex features */
+        .row {
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-pack: center;
+            justify-content: center;
+        }
+        .row > div {
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            flex: 1;
+        }
+        .row > div:last-child {
+            margin-right: 0;
+        }
+        /* Fix wkhtmltopdf compatibility with BS tables borders */
+        /* Requires cellspacing="0" on table to prevent spacing */
+        table {
+            border-collapse: separate !important;
+        }
+        th, td {
+            border-top: none;
+            border-left: none;
+            border-right: none;
+        }
+        </style>
 </head>
 
 <body>
