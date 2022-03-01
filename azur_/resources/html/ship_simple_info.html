@@ -1,7 +1,6 @@
 <!-- ./wkhtmltoimage --enable-local-file-access --width 1215 --height 684 --encoding UTF-8 H:/qq/YuriBot/zhenxun_bot-main/plugins_ex/azur_/resources/html/ship_simple_info.html C:/Users/Izumi/Desktop/test.jpg  -->
 <!DOCTYPE html>
 <html lang="zh-cn">
-
 <head>
     <meta charset="UTF-8">
     <title>ship simple infoab</title>
@@ -44,22 +43,50 @@
             <div class="ship-rarity-bg ste-size" style="background-image: url(../image/ship_info/rarity/bg/bg_24.png);">
                 <!-- 舰船立绘 -->
                 <div class="painting-box ste-size" style="background-image: url(../image/skins/535/Default/image.png);">
-                    <div  class="ship-info-bg ste-size" style="background-image: url(../image/ship_info/shipinfobox.png);">
-                    </div>
+
                 </div>
             </div>
         </div>
         <div class="ship-simple-info ste-size">
             <div class="left-info float-left">
-                <!-- 这边显示皮肤 -->
+                <!-- 这边显示船名舰种 -->
+                <div class="ship-nameandtype-box" id="box">
+                    <!-- 星星 -->
+                    <span class="star" id="box">
+                        <img src="../image/ship_info/rarity/star_big.png" height="30">
+                        <img src="../image/ship_info/rarity/star_big.png" height="30">
+                        <img src="../image/ship_info/rarity/star_big.png" height="30">
+                        <img src="../image/ship_info/rarity/star_big.png" height="30">
+                        <img src="../image/ship_info/rarity/star_big.png" height="30">
+                    </span>
+                    <!-- 舰种 -->
+                    <img class="ship-type" src="../image/ship_info/ship/轻巡.png" height="60">
+                    <!-- 舰名 -->
+                    <span class="ship-name" id="box">
+                            基辅(和谐名).改
+                        <br>    
+                        <b class="ship-name-en" id="box">
+                            SN Kiev
+                        </b>
+                    </span>   
+                </div>
+                <!-- 这边显示皮肤 最多支持10个皮肤 默认margin-top: 60% 每有一个皮肤减6.7-->
+                <div class="skins-box" id="box">
+                    <div>
+                        夜港的什么什么什么
+                    </div>
+                    <div>
+                        最多支持显示10个皮肤
+                    </div>
+                </div>
             </div>
             <div class="right-info float-left">
                 <!-- 这边显示简略信息 -->
-                <div class="container float-left">
+                <div class="container float-left ship-info-bg" id="box">
                     <div class="row">
-                        <div class="col">123</div>
-                        <div class="col">123</div>
-                        <div class="col">123</div>
+                        <div class="col icon">123</div>
+                        <div class="col icon" id="耐久">123</div>
+                        <div class="col icon">123</div>
                     </div>
                 </div>
             </div>
