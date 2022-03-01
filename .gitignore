@@ -135,4 +135,4 @@ azur_/resources/image/*
 !azur_/resources/image/ship_info
 data
 AssetExtract
-test.py
+test.*
