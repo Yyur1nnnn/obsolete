@@ -1,4 +1,4 @@
-<!-- ./wkhtmltoimage --enable-local-file-access --width 1215 --height 684 --encoding UTF-8 H:/qq/YuriBot/zhenxun_bot-main/plugins_ex/azur_/resources/html/ship_simple_info.html C:/Users/Izumi/Desktop/test.jpg  -->
+<!-- ./wkhtmltoimage --enable-local-file-access --minimum-font-size 1 --width 1215 --height 684 --encoding UTF-8 H:/qq/YuriBot/zhenxun_bot-main/plugins_ex/azur_/resources/html/ship_simple_info.html C:/Users/Izumi/Desktop/test.jpg  -->
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
@@ -39,12 +39,11 @@
 
 <body>
     <div class="main position-relative">
+        <!-- <div class="warning position-absolute text-center">工事中...</div> -->
         <div class="bg position-absolute">
             <div class="ship-rarity-bg ste-size" style="background-image: url(../image/ship_info/rarity/bg/bg_24.png);">
                 <!-- 舰船立绘 -->
-                <div class="painting-box ste-size" style="background-image: url(../image/skins/535/Default/image.png);">
-
-                </div>
+                <div class="painting-box ste-size" style="background-image: url(../image/skins/535/Default/image.png);"></div>
             </div>
         </div>
         <div class="ship-simple-info ste-size position-absolute">
@@ -73,7 +72,7 @@
                 <!-- 这边显示皮肤 最多支持10个皮肤 默认margin-top: 60% 每有一个皮肤减6.7-->
                 <div class="skins-box" id="box" style="margin-top: 53.3%;">
                     <div>
-                        夜港的什么什么什么
+                        夜港的什么什么什么玩意儿
                     </div>
                     <div>
                         最多支持显示10个皮肤
@@ -93,7 +92,7 @@
                         <th class="info-icon">
                             <img class="rounded float-start" src="../image/ship_info/ship/2.png" height="25px">
                         </th>
-                        <td>装甲<b>最多这些字</b></td>
+                        <td>装甲<b>最多的字</b></td>
                         <th>&emsp;</th>
                         <th class="info-icon">
                             <img class="rounded float-start" src="../image/ship_info/ship/3.png" height="25px">
@@ -156,30 +155,85 @@
                         <td>消耗<b></b></td>
                     </tr>
                 </table>
-                <table class="ship-kills">
-                    <tr>
-                        <th class="kill-icon">
-                            <img class="rounded float-start" src="../image/skills/001/universal_bulin.png" height="64px">
-                        </th>
-                        <td><b>这是技能名</b>暂时不能显示大世界技能差分/改造前和改造后，默认显示满级常规图改造后技能。大概会展示3个技能，如果技能说明里小作文可能会炸排版。最多大概支持这么这么多字</td>
-                    </tr>
-                    <tr>
-                        <th class="kill-icon border-top-0">
-                            <img class="rounded float-start" src="../image/skills/001/universal_bulin.png" height="64px">
-                        </th>
-                        <td><b>TODO</b>这层的table加个上外边距，tr之间加边距，th、td加上下框线。ship-info-bg加个边角</td>
-                    </tr>
-                    <tr>
-                        <th class="kill-icon border-top-0">
-                            <div></div>
-                        </th>
-                        <td><b>第三个技能</b>直接在th中添加div标签获得带？的skill图标</td>
-                    </tr>
-                </table>
-                <table class="ship-technology">
-                </table>
-                <div class="asd1">保留用低栏 显示建造时间</div>
-                <div class="asd2">显示获取途径(前5)</div>
+                <div>
+                    <table class="ship-kills">
+                        <tr>
+                            <th class="kill-icon">
+                                <img class="rounded float-start" src="../image/skills/001/universal_bulin.png" height="64px">
+                            </th>
+                            <td><div><b>这是技能名</b>暂时不能显示大世界技能差分/改造前和改造后，默认显示满级常规图改造后技能。大概会展示3个技能，如果技能说明里小作文可能会炸排版。最多大概支持这么这么多字</div></td>
+                        </tr>
+                        <tr>
+                            <th class="kill-icon border-top-0">
+                                <img class="rounded float-start" src="../image/skills/001/universal_bulin.png" height="64px">
+                            </th>
+                            <td><div><b>这是技能名</b></div></td>
+                        </tr>
+                        <tr>
+                            <th class="kill-icon border-top-0">
+                                <div></div>
+                            </th>
+                            <td><div><b>第三个技能</b>123123</div></td>
+                        </tr>
+                    </table>
+                    <table class="ship-technology text-center" cellspacing="0">
+                        <tr>
+                            <th colspan="24" width="490px" height="25px">
+                                舰队科技
+                            </th>
+                        </tr>
+                        <tr>
+                            <th colspan="12" width="245px">
+                                科技
+                            </th>
+                            <td colspan="12" width="245px">
+                                属性加成
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                获得
+                            </th>
+                            <td>
+                                <img src="../image/ship_info/technology.png">
+                                +<span>1</span>
+                            </td>
+                            <th class="total" rowspan="3" height="20px">
+                                合计<br><span>7</span>
+                            </th>
+                            <td colspan="12" width="245px">
+                                加成1
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                满星
+                            </th>
+                            <td>
+                                <img src="../image/ship_info/technology.png">
+                                +<span>2</span>
+                            </td>
+                            <td colspan="12" width="245px">
+                                加成2
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                LV.120
+                            </th>
+                            <td>
+                                <img src="../image/ship_info/technology.png">
+                                +<span>3</span>
+                            </td>
+                            <td colspan="12" width="245px">
+                                加成3
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="asd1">保留用低栏 显示建造时间</div>
+                    <div class="asd2">显示获取途径(前5)</div>
+                </div>
+                <div class="right-info-footer"></div>
             </div>
         </div>
     </div>

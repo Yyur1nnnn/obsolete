@@ -3,6 +3,17 @@
     src: url("../font/NotoSansHans-Regular.otf");
     font-stretch:normal;
 }
+/* warning */
+.warning {
+    width: 1215px;
+    height: 684px;
+    font-size:260px;
+    z-index: 99;
+    color: rgba(255, 250, 0, 0.2);
+    margin-top: 130px;
+}
+
+/* 立绘/背景 */
 .main, .ship-nameandtype-box{
     font-family: "NotoSansHans-Regular";
 }
@@ -17,6 +28,8 @@
 .ship-simple-info {
     margin-top:10px;
 }
+
+/* 左侧布局 */
 .left-info {
     font-weight:350;
     width:55%; height:100%;
@@ -65,11 +78,12 @@
     background-size: 374px;
     text-indent : 95px;
     line-height: 35px;
+    font-weight: 600;
     font-size: 20px; 
-    color: rgba(255, 255, 255, 0.589);
+    color: rgba(255, 255, 255, 0.8);
 }
 
-
+/* 右侧背景 */
 .right-info{
     float:left;
     color: #fff;
@@ -93,7 +107,56 @@
         );
         background-size: 10px 10px;
 }
+.right-info::before {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 10px;
+    height: 10px;
+    border-left: 2px solid rgba(255, 255, 255, 0.5);
+    border-top: 2px solid rgba(255, 255, 255, 0.5);
+    content: "";
+}
+.right-info::after {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid rgba(255, 255, 255, 0.5);
+    border-top: 2px solid rgba(255, 255, 255, 0.5);
+    content: "";
+}
+.right-info-footer {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+  }
+  .right-info-footer::before {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid rgba(255, 255, 255, 0.5);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    content: "";
+}
+.right-info-footer::after {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 10px;
+    height: 10px;
+    border-left: 2px solid rgba(255, 255, 255, 0.5);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    content: "";
+}
 
+
+
+/* 属性 */
 .right-info table.ship-info {
     margin-top: -4px;
     padding-left: 10px;
@@ -113,22 +176,37 @@
     float: right;
     color: yellow;
 }
-.right-info table tr th.hr {
+.ship-info tr th.hr {
     height: 1px;
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
-.ship-kills{
-    margin-top: 10px;
-    border-collapse: collapse;
-}
-.ship-kills tr{
+/* 技能 */
+.ship-info+div {
     background-color:rgba(32, 32, 32, 0.5);
-    border-top: 0.5px solid rgba(255, 255, 255, 0.5);
-    border-bottom: 0.5px solid rgb(255, 255, 255, 0.5);
-    min-height:64px;
-    width: 486.6px;
+    border-top: 1px solid rgba(255, 255, 255, 0.8);
+    border-bottom: 1px solid rgba(255, 255, 255, 1);
+}
+.ship-kills{
+    border-collapse: collapse;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+.ship-kills tr {
+    border-bottom: 1px solid rgb(150, 150, 150);
+    overflow:hidden;
     display:inline-block;
+}
+.kill-icon+td{
+    width: 5000px;
+    height: 85px;
+}
+.kill-icon+td div{
+    max-height: 85px;
+    overflow:hidden;
+    font-size: 15px;
+}
+.ship-kills tr:last-child {
+    border-bottom: None;
 }
 .kill-icon div {
     height:64px; width:64px;
@@ -136,7 +214,7 @@
     background-image: url(../image/ship_info/mask_skill.png);
     -webkit-filter: brightness(150%);
     font-size:60px;
-    color: rgb(139, 139, 139);
+    color: rgba(255, 255, 255, 0.5);
     line-height: 65px;
     text-align:center
 }
@@ -148,12 +226,41 @@
     margin-right: 5px ;
 }
 
+
+/* 科技点框线 */
+.ship-technology th,.ship-technology td {
+    border: 1px solid rgb(150, 150, 150);
+}
+.ship-technology tr th:first-child{
+    border-left: None;
+}
+.ship-technology tr td:last-child{
+    border-right: None;
+}
+.ship-technology tr:first-child th,
+.ship-technology tr:first-child td,
+.ship-technology tr:last-child th,
+.ship-technology tr:last-child td{
+    border: None;
+}
+.ship-technology tr td{
+    border-left: 1px solid rgb(150, 150, 150) !important;
+}
+.ship-technology tr:last-child th{
+    border-right: 1px solid rgb(150, 150, 150) !important;
+}
+.total {
+    border-bottom: None !important;
+}
+
+
+/* 保留行 */
 .right-info {
     position: relative;
 }
 .asd1 {
-    position:absolute;left:0;bottom:18px;
+    position:absolute;left:5px;bottom:19px;
 }
 .asd2 {
-    position:absolute;left:0;bottom:0;
+    position:absolute;left:5px;bottom:2px;
 }
