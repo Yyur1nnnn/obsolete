@@ -1,17 +1,10 @@
 @font-face {
-    font-family: "NotoSansHans-Medium";
-    src: url("../font/NotoSansHans-Medium.otf");
+    font-family: "NotoSansHans-Regular";
+    src: url("../font/NotoSansHans-Regular.otf");
     font-stretch:normal;
-    
-}
-*{
-    font-family: "NotoSansHans-Medium";
 }
 .main, .ship-nameandtype-box{
-    position: relative;
-}
-.bg, .ship-simple-info, .star{
-    position: absolute;
+    font-family: "NotoSansHans-Regular";
 }
 .ste-size {
     width: 1215px;
@@ -24,19 +17,10 @@
 .ship-simple-info {
     margin-top:10px;
 }
-.float-left {
-    float:left ;
-}
 .left-info {
-     width:54.5%; height:100%;
-}
-.ship-info-bg{
-    width: 535px;
-    height: 630px;
-}
-#box1{
-    background-color: #00f62134;
-    border: solid #f60000;
+    font-weight:350;
+    width:55%; height:100%;
+    float:left;
 }
 .ship-nameandtype-box {
     line-height: 25px;
@@ -56,23 +40,20 @@
     margin-top: 35px;
     padding-left: 50px; 
     font-size: 18px; 
-    color: rgb(255, 255, 255);
+    color: #fff
 }
 .ship-name-en {
+    font-size: 15px;
     display:inline-block;
     padding-left: 30px; 
-    font-size: 10px; 
-    color: rgba(255, 255, 255, 0.589);
+    color: rgba(255, 255, 255, 0.6);
 }
 .star{
     margin-top: 10px;
     margin-left: 200px;
 }
 .star img {
-    margin-left: -18px;
-}
-.skins-box {
-    margin-top: 53.3%;
+    margin-left: -15px;
 }
 .skins-box div{
     width: 374px;
@@ -89,16 +70,90 @@
 }
 
 
-.right-info {
-    width:45.5%; height:100%;
+.right-info{
+    float:left;
+    color: #fff;
+    padding-top: 10px;
+    width: 490px; height:92%;
     margin-top: 15px;
+    background: rgba(32, 32, 32, 0.35);
+    background-image: 
+        -webkit-linear-gradient(
+            0deg, 
+            rgba(255, 255, 255, 0.1) 
+            10%, 
+            rgba(0, 0, 0, 0) 
+            10%
+        ), 
+        -webkit-linear-gradient(
+            rgba(255, 255, 255, 0.1) 
+            10%, 
+            rgba(0, 0, 0, 0) 
+            10%
+        );
+        background-size: 10px 10px;
 }
-.ship-info-bg.row div{
-    height: 64px;
+
+.right-info table.ship-info {
+    margin-top: -4px;
+    padding-left: 10px;
+    border-collapse: collapse;
+    border-spacing: 0 4px;
 }
-#耐久 {
-    background: 
-    no-repeat 
-    url(../image/ship_info/ship/attr_1.png);
-    background-size: 20px;
+.info-icon {
+    background-color:rgba(32, 32, 32, 0.8);
+    margin-left: 25px;
+}
+.info-icon+td {
+    background-color:rgba(32, 32, 32, 0.6);
+    height: 20px;
+    width: 115px;
+}
+.info-icon+td b {
+    float: right;
+    color: yellow;
+}
+.right-info table tr th.hr {
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.ship-kills{
+    margin-top: 10px;
+    border-collapse: collapse;
+}
+.ship-kills tr{
+    background-color:rgba(32, 32, 32, 0.5);
+    border-top: 0.5px solid rgba(255, 255, 255, 0.5);
+    border-bottom: 0.5px solid rgb(255, 255, 255, 0.5);
+    min-height:64px;
+    width: 486.6px;
+    display:inline-block;
+}
+.kill-icon div {
+    height:64px; width:64px;
+    background-size:64px; 
+    background-image: url(../image/ship_info/mask_skill.png);
+    -webkit-filter: brightness(150%);
+    font-size:60px;
+    color: rgb(139, 139, 139);
+    line-height: 65px;
+    text-align:center
+}
+.kill-icon div:after {
+    content: "?";
+}
+.kill-icon+td b {
+    color: yellow;
+    margin-right: 5px ;
+}
+
+.right-info {
+    position: relative;
+}
+.asd1 {
+    position:absolute;left:0;bottom:18px;
+}
+.asd2 {
+    position:absolute;left:0;bottom:0;
 }

@@ -38,8 +38,8 @@
 </head>
 
 <body>
-    <div class="main">
-        <div class="bg">
+    <div class="main position-relative">
+        <div class="bg position-absolute">
             <div class="ship-rarity-bg ste-size" style="background-image: url(../image/ship_info/rarity/bg/bg_24.png);">
                 <!-- 舰船立绘 -->
                 <div class="painting-box ste-size" style="background-image: url(../image/skins/535/Default/image.png);">
@@ -47,12 +47,12 @@
                 </div>
             </div>
         </div>
-        <div class="ship-simple-info ste-size">
-            <div class="left-info float-left">
+        <div class="ship-simple-info ste-size position-absolute">
+            <div class="left-info float-xxl-start">
                 <!-- 这边显示船名舰种 -->
-                <div class="ship-nameandtype-box" id="box">
+                <div class="ship-nameandtype-box position-relative" id="box">
                     <!-- 星星 -->
-                    <span class="star" id="box">
+                    <span class="star position-absolute" id="box">
                         <img src="../image/ship_info/rarity/star_big.png" height="30">
                         <img src="../image/ship_info/rarity/star_big.png" height="30">
                         <img src="../image/ship_info/rarity/star_big.png" height="30">
@@ -71,7 +71,7 @@
                     </span>   
                 </div>
                 <!-- 这边显示皮肤 最多支持10个皮肤 默认margin-top: 60% 每有一个皮肤减6.7-->
-                <div class="skins-box" id="box">
+                <div class="skins-box" id="box" style="margin-top: 53.3%;">
                     <div>
                         夜港的什么什么什么
                     </div>
@@ -80,15 +80,106 @@
                     </div>
                 </div>
             </div>
-            <div class="right-info float-left">
+            <div class="right-info ship-info-bg float-xxl-start ">
                 <!-- 这边显示简略信息 -->
-                <div class="container float-left ship-info-bg" id="box">
-                    <div class="row">
-                        <div class="col icon">123</div>
-                        <div class="col icon" id="耐久">123</div>
-                        <div class="col icon">123</div>
-                    </div>
-                </div>
+                <table class="ship-info">
+                    <!-- th与th之间有<th>&emsp;</th> 注意python写入-->
+                    <tr>
+                        <th class="info-icon">
+                            <img class="rounded float-start" src="../image/ship_info/ship/1.png" height="25px">
+                        </th>
+                        <td>耐久<b class="text-end">123</b></td>
+                        <th>&emsp;</th>
+                        <th class="info-icon">
+                            <img class="rounded float-start" src="../image/ship_info/ship/2.png" height="25px">
+                        </th>
+                        <td>装甲<b>最多这些字</b></td>
+                        <th>&emsp;</th>
+                        <th class="info-icon">
+                            <img class="rounded float-start" src="../image/ship_info/ship/3.png" height="25px">
+                        </th>
+                        <td>装填<b>15550</b></td>
+                    </tr>
+                    <tr>
+                        <th class="info-icon">
+                            <img class="rounded float-start" src="../image/ship_info/ship/4.png" height="25px">
+                        </th>
+                        <td>炮击<b class="text-end"></b></td>
+                        <th>&emsp;</th>
+                        <th class="info-icon">
+                            <img class="rounded float-start" src="../image/ship_info/ship/5.png" height="25px">
+                        </th>
+                        <td>雷击<b></b></td>
+                        <th>&emsp;</th>
+                        <th class="info-icon">
+                            <img class="rounded float-start" src="../image/ship_info/ship/6.png" height="25px">
+                        </th>
+                        <td>机动<b></b></td>
+                    </tr>
+                    <tr>
+                        <th class="info-icon">
+                            <img class="rounded float-start" src="../image/ship_info/ship/7.png" height="25px">
+                        </th>
+                        <td>防空 <b class="text-end"></b></td>
+                        <th>&emsp;</th>
+                        <th class="info-icon">
+                            <img class="rounded float-start" src="../image/ship_info/ship/8.png" height="25px">
+                        </th>
+                        <td>航空<b></b></td>
+                        <th>&emsp;</th>
+                        <th class="info-icon">
+                            <img class="rounded float-start" src="../image/ship_info/ship/9.png" height="25px">
+                        </th>
+                        <td>命中<b></b></td>
+                    </tr>
+                    <tr>
+                        <th class="info-icon">
+                            <img class="rounded float-start" src="../image/ship_info/ship/10.png" height="25px">
+                        </th>
+                        <td>反潜 <b class="text-end"></b></td>
+                        <th>&emsp;</th>
+                        <th class="info-icon">
+                            <img class="rounded float-start" src="../image/ship_info/ship/10.png" height="25px">
+                        </th>
+                        <td>反潜 <b class="text-end"></b></td>
+                    </tr>
+                    <tr><th class="hr" colspan="12"></th></tr>
+                    <tr>
+                        <th class="info-icon">
+                            <img class="rounded float-start" src="../image/ship_info/ship/14.png" height="25px">
+                        </th>
+                        <td>幸运 <b class="text-end"></b></td>
+                        <th>&emsp;</th>
+                        <th class="info-icon">
+                            <img class="rounded float-start" src="../image/ship_info/ship/15.png" height="25px">
+                        </th>
+                        <td>消耗<b></b></td>
+                    </tr>
+                </table>
+                <table class="ship-kills">
+                    <tr>
+                        <th class="kill-icon">
+                            <img class="rounded float-start" src="../image/skills/001/universal_bulin.png" height="64px">
+                        </th>
+                        <td><b>这是技能名</b>暂时不能显示大世界技能差分/改造前和改造后，默认显示满级常规图改造后技能。大概会展示3个技能，如果技能说明里小作文可能会炸排版。最多大概支持这么这么多字</td>
+                    </tr>
+                    <tr>
+                        <th class="kill-icon border-top-0">
+                            <img class="rounded float-start" src="../image/skills/001/universal_bulin.png" height="64px">
+                        </th>
+                        <td><b>TODO</b>这层的table加个上外边距，tr之间加边距，th、td加上下框线。ship-info-bg加个边角</td>
+                    </tr>
+                    <tr>
+                        <th class="kill-icon border-top-0">
+                            <div></div>
+                        </th>
+                        <td><b>第三个技能</b>直接在th中添加div标签获得带？的skill图标</td>
+                    </tr>
+                </table>
+                <table class="ship-technology">
+                </table>
+                <div class="asd1">保留用低栏 显示建造时间</div>
+                <div class="asd2">显示获取途径(前5)</div>
             </div>
         </div>
     </div>
