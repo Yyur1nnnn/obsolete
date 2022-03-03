@@ -30,7 +30,7 @@ async def download_azurapi_image() -> str:
 
 def popen(timeout: str = 3600) -> str:
     url = "https://github.com/AzurAPI/azurapi-js-setup/trunk/images/"
-    command = f"svn co {url}skills {url}skins image"
+    command = f"svn co {url}backgrounds {url}skills {url}skins image"
     # CREATE_NO_WINDOW = 0x08000000 if platform.system() == "Windows" else None
     cwd = str(PATH_.absolute())
     global p
