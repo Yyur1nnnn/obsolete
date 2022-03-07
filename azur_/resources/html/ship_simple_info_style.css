@@ -169,8 +169,7 @@ body{
     color: yellow;
 }
 .ship-info tr th.hr {
-    height: 1px;
-    background-color: rgba(255, 255, 255, 0.5);
+    border-top: 1px solid rgba(255, 255, 255, 0.8);
 }
 
 /* 技能 */
@@ -190,7 +189,7 @@ body{
 }
 .kill-icon+td{
     width: 5000px;
-    height: 85px;
+    height: 83px;
 }
 .kill-icon+td div{
     max-height: 85px;
@@ -254,5 +253,5 @@ body{
     position:absolute;left:5px;bottom:19px;
 }
 .asd2 {
-    position:absolute;left:5px;bottom:2px;
+    position:absolute;left:5px;bottom:0px;
 }

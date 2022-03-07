@@ -27,7 +27,7 @@ body{
     opacity:0.5;
 }
 
-/* 布局 */
+/* 布局格式 */
 .left-box {
     width: 40%; height: 100%;
     float: left;
@@ -35,6 +35,10 @@ body{
 .right-box {
     width: 60%; height: 100%;
     float: left;
+}
+.text-orange{
+    /* 修复wkh兼容 */
+    color: rgb(255, 174, 0);
 }
 /* 左信息 */
 .info {
@@ -46,7 +50,7 @@ body{
 .info1 {
     width: 700px; height: 625px;
     margin: 15px 0 0 15px;
-    padding-bottom: 5px;
+    padding: 0 5px 5px 5px;
 }
 
 /* 框架背景 */
@@ -146,9 +150,10 @@ body{
         url(../image/ship_info/SpriteAtlasTexture-ShipInfoUI-1024x1024-fmt472.png);
     background-size: 240px;
 }
-.head-icon .ship-name b{
+.head-icon .ship-name div {
+    width: 215px;
     font-size: 25px;
-    line-height: 40px;
+    line-height: 40px; 
 }
 
 
@@ -159,9 +164,47 @@ body{
 .info table .first-line th {
     width: 93px; height: 48px;
 }
-.info table .first-line td{
+.info table .first-line td {
     width: 139px; height: 48px;
 }
+/* 强化经验 */
+
+
+
+/* 右侧布局 */
+.info1 .dev,.info1 .equip, .info1 .stre {
+    margin-top: 5px;
+}
+/* 属性 */
+.info1 .attr {
+    margin-top: -5px;
+}
+.info1 .attr th {
+    width: 55px;
+}
+.info1 .attr td {
+    width: 175px;
+}
+/* 突破 */
+.info1 .stre th {
+    width: 45px
+}
+.info1 .stre td {
+    width: 645px
+}
+/* 科研 */
+.info1 .dev th{
+    width: 55px;
+}
+.info1 .dev td{
+    width: 635px;
+    font-size: 13px;
+}
+/* 装备 */
+/* .info1 .equip {} */
+
+
+
 /* 表格 */
 table {
     border-collapse: collapse;
