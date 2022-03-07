@@ -3,53 +3,25 @@
 <html lang="zh-cn">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ship simple infoab</title>
     <script src="js/jquery-3.6.0.min.js"></script>
     <!-- <script src="js/bootstrap.min.js" type="text/javascript"></script> -->
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="css/wkh_compatibility.css" rel="stylesheet" type="text/css"/>
     <link href="ship_simple_info_style.css" rel="stylesheet" type="text/css"/>
-    <style>
-        /* Fix wkhtmltopdf compatibility with BS flex features */
-        .row {
-            display: -webkit-box;
-            display: flex;
-            -webkit-box-pack: center;
-            justify-content: center;
-        }
-        .row > div {
-            -webkit-box-flex: 1;
-            -webkit-flex: 1;
-            flex: 1;
-        }
-        .row > div:last-child {
-            margin-right: 0;
-        }
-        /* Fix wkhtmltopdf compatibility with BS tables borders */
-        /* Requires cellspacing="0" on table to prevent spacing */
-        table {
-            border-collapse: separate !important;
-        }
-        th, td {
-            border-top: none;
-            border-left: none;
-            border-right: none;
-        }
-        </style>
 </head>
 
 <body>
-    <div class="main position-relative">
-        <!-- <div class="warning position-absolute text-center">工事中...</div> -->
-        <div class="bg position-absolute">
-            <div class="ship-rarity-bg ste-size" style="background-image: url(../image/ship_info/rarity/bg/bg_24.png);">
-                <!-- 舰船立绘 -->
-                <div class="painting-box ste-size" style="background-image: url(../image/skins/535/Default/image.png);"></div>
-            </div>
-        </div>
-        <div class="ship-simple-info ste-size position-absolute">
+    <!-- 简略信息 -->
+    <div class="ship-simple-info ship-rarity-bg ste-size" style="background-image: url(../image/ship_info/rarity/bg/bg_24.png);">
+        <!-- 舰船立绘 -->
+        <div class="painting-box ste-size position-relative" style="background-image: url(../image/skins/535/Default/image.png);">
+            <span class="statement position-absolute">碧蓝助手@Yyur1n-玥绫 所有数据均来自碧蓝海事局与azur-api</span>
             <div class="left-info float-xxl-start">
                 <!-- 这边显示船名舰种 -->
-                <div class="ship-nameandtype-box position-relative" id="box">
+                <div class="ship-nameandtype-box" id="box">
                     <!-- 星星 -->
                     <span class="star position-absolute" id="box">
                         <img src="../image/ship_info/rarity/star_big.png" height="30">
@@ -59,7 +31,7 @@
                         <img src="../image/ship_info/rarity/star_big.png" height="30">
                     </span>
                     <!-- 舰种 -->
-                    <img class="ship-type" src="../image/ship_info/ship/轻巡.png" height="60">
+                    <img class="ship-type" src="../image/ship_info/ship/驱逐.png" height="60">
                     <!-- 舰名 -->
                     <span class="ship-name" id="box">
                             基辅(和谐名).改
@@ -80,6 +52,7 @@
                 </div>
             </div>
             <div class="right-info ship-info-bg float-xxl-start ">
+                <div class="right-info-footer"></div>
                 <!-- 这边显示简略信息 -->
                 <table class="ship-info">
                     <!-- th与th之间有<th>&emsp;</th> 注意python写入-->
@@ -132,11 +105,6 @@
                         <td>命中<b></b></td>
                     </tr>
                     <tr>
-                        <th class="info-icon">
-                            <img class="rounded float-start" src="../image/ship_info/ship/10.png" height="25px">
-                        </th>
-                        <td>反潜 <b class="text-end"></b></td>
-                        <th>&emsp;</th>
                         <th class="info-icon">
                             <img class="rounded float-start" src="../image/ship_info/ship/10.png" height="25px">
                         </th>
@@ -233,13 +201,9 @@
                     <div class="asd1">保留用低栏 显示建造时间</div>
                     <div class="asd2">显示获取途径(前5)</div>
                 </div>
-                <div class="right-info-footer"></div>
             </div>
         </div>
     </div>
 </body>
-<script>
-
-</script>
 
 </html>

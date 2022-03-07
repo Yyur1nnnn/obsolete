@@ -1,0 +1,172 @@
+@font-face {
+    font-family: "NotoSansHans-Regular";
+    src: url("../font/NotoSansHans-Regular.otf");
+    font-stretch:normal;
+}
+body{
+    font-family: "NotoSansHans-Regular";
+}
+
+/* 背景/声明 */
+.ship-detailed-info {
+    width: 1215px;
+    height: 684px;
+    background: 
+    no-repeat 
+    url(../image/ship_info/bg_port_chuanwu1.png);
+    overflow: hidden;
+}
+.statement  {
+    color: rgba(255, 255, 255, 0.5);
+    right: 0;bottom: 0;
+}
+/* 阵营图标 */
+.camp-icon {
+    width: 850px;
+    right: -25%;bottom: -25%;
+    opacity:0.5;
+}
+
+/* 布局 */
+.left-box {
+    width: 40%; height: 100%;
+    float: left;
+}
+.right-box {
+    width: 60%; height: 100%;
+    float: left;
+}
+/* 左信息 */
+.info {
+    width: 450px; height: 480px;
+    margin: 180px 0 0 15px;
+    padding: 0 5px 5px 5px;
+}
+/* 右信息 */
+.info1 {
+    width: 700px; height: 625px;
+    margin: 15px 0 0 15px;
+    padding-bottom: 5px;
+}
+
+/* 框架背景 */
+.box-bg{
+    float:left;
+    color: #fff;
+    padding-top: 10px;
+    margin-top: 25px;
+    background: rgba(32, 32, 32, 0.5);
+    background-image: 
+        -webkit-linear-gradient(
+            0deg, 
+            rgba(255, 255, 255, 0.1) 
+            10%, 
+            rgba(0, 0, 0, 0) 
+            10%
+        ), 
+        -webkit-linear-gradient(
+            rgba(255, 255, 255, 0.1) 
+            10%, 
+            rgba(0, 0, 0, 0) 
+            10%
+        );
+        background-size: 10px 10px;
+}
+.box-bg::before {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 10px;
+    height: 10px;
+    border-left: 2px solid rgba(255, 255, 255, 0.5);
+    border-top: 2px solid rgba(255, 255, 255, 0.5);
+    content: "";
+}
+.box-bg::after {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid rgba(255, 255, 255, 0.5);
+    border-top: 2px solid rgba(255, 255, 255, 0.5);
+    content: "";
+}
+.box-bg-footer {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+  }
+.box-bg-footer::before {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid rgba(255, 255, 255, 0.5);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    content: "";
+}
+.box-bg-footer::after {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 10px;
+    height: 10px;
+    border-left: 2px solid rgba(255, 255, 255, 0.5);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    content: "";
+}
+
+/* 头像 */
+.head-icon {
+    margin: 50px 0 0 50px;
+    width: 95px; height: 95px;
+}
+.head-icon * {
+    position: absolute;
+}
+.head-icon .head {
+    width: 140px;
+    margin: -20px 0 0 -20px;
+    clip:rect(20px,115px,115px,20px);
+}
+.head-icon .frame {
+    margin: -7px 0 0 -3px;
+    width: 102px;
+}
+.head-icon .ship-name {
+    color: #fff;
+    margin: 3px 0 0 90px;
+    padding: 8px 0 0 10px;
+    width: 230px; height: 95px;
+    background: 
+        no-repeat
+        url(../image/ship_info/SpriteAtlasTexture-ShipInfoUI-1024x1024-fmt472.png);
+    background-size: 240px;
+}
+.head-icon .ship-name b{
+    font-size: 25px;
+    line-height: 40px;
+}
+
+
+/* 左侧布局 */
+.info table tr th {
+    font-weight:bolder;
+}
+.info table .first-line th {
+    width: 93px; height: 48px;
+}
+.info table .first-line td{
+    width: 139px; height: 48px;
+}
+/* 表格 */
+table {
+    border-collapse: collapse;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+td,th {
+    border: 1px solid rgb(150, 150, 150);
+}
